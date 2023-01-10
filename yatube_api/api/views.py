@@ -3,10 +3,12 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
 from rest_framework import viewsets, filters
 from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
+from rest_framework.permissions import IsAuthenticatedOrReadOnly,\
+    IsAuthenticated
 
 from .permission import IsOwnerOrReadOnly
-from .serializers import GroupSerializer, PostSerializer, CommentSerializer, FollowSerializer
+from .serializers import GroupSerializer, PostSerializer, CommentSerializer,\
+    FollowSerializer
 from posts.models import Group, Post
 from .mixins import CreateListViewSet
 
