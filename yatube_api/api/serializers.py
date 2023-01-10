@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
-from rest_framework.validators import UniqueTogetherValidator
 
 from posts.models import Group, Post, Comment, Follow
 
@@ -19,7 +18,8 @@ class PostSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     post = serializers.PrimaryKeyRelatedField(read_only=True,
                                               source='post.pk')
-    author = serializers.SlugRelatedField(read_only=True, slug_field='username',
+    author = serializers.SlugRelatedField(read_only=True,
+                                          slug_field='username',
                                           required=False)
 
     class Meta:
