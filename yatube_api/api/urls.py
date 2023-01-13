@@ -1,5 +1,4 @@
 from django.urls import include, path
-from django.views.generic import TemplateView
 from rest_framework.routers import DefaultRouter
 
 from .views import CommentViewSet, PostViewSet, FollowViewSet, GroupViewSet
@@ -12,8 +11,7 @@ v1_router.register('groups', GroupViewSet, basename='group')
 v1_router.register('follow', FollowViewSet, basename='follow')
 
 jwt_patterns = [path('', include('djoser.urls')),
-                path('', include('djoser.urls.jwt'))
-]
+                path('', include('djoser.urls.jwt'))]
 
 urlpatterns = [
     path('v1/', include(jwt_patterns)),
